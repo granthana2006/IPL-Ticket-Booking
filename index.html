@@ -1,0 +1,384 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPL 2026 | Ticket Booking</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+
+<body>
+
+<header>
+    <nav class="container">
+        <a href="#" class="logo">IPL <span>2026</span></a>
+
+        <ul class="nav-links">
+            <li><a href="#matches">Matches</a></li>
+            <li><a href="#booking">Book Ticket</a></li>
+            <li><a href="#my-bookings">My Bookings</a></li>
+            <li><a href="#guidelines">Guidelines</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-tag">THE BIGGEST CRICKET FESTIVAL</span>
+                <h1>Experience The Stadium Energy Live!</h1>
+                <p>Feel every boundary, every six and every unforgettable moment. Book your IPL tickets today!</p>
+
+                <a href="#matches" class="btn btn-yellow">View Schedule</a>
+                <a href="#booking" class="btn btn-outline">Book Ticket</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+        <div class="container">
+            <div class="section-heading">
+                <h2>About IPL 2026</h2>
+                <p>Celebrate cricket, passion and unforgettable moments.</p>
+            </div>
+
+            <div class="about-grid">
+                <div class="info-card">
+                    <h3>Popular Teams</h3>
+                    <ul class="team-list">
+                        <li>Chennai Super Kings</li>
+                        <li>Mumbai Indians</li>
+                        <li>Royal Challengers Bengaluru</li>
+                        <li>Kolkata Knight Riders</li>
+                        <li>Delhi Capitals</li>
+                        <li>Rajasthan Royals</li>
+                        <li>Sunrisers Hyderabad</li>
+                        <li>Punjab Kings</li>
+                        <li>Gujarat Titans</li>
+                        <li>Lucknow Super Giants</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h3>Major Match Venues</h3>
+                    <ul class="venue-list">
+                        <li>M. Chinnaswamy Stadium</li>
+                        <li>Wankhede Stadium</li>
+                        <li>Chepauk Stadium</li>
+                        <li>Eden Gardens</li>
+                        <li>Arun Jaitley Stadium</li>
+                        <li>Narendra Modi Stadium</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MATCHES -->
+    <section id="matches">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Match Schedule</h2>
+                <p>Explore matches and select your favourite team.</p>
+            </div>
+
+            <div class="filter-area">
+                <h3>Upcoming Matches</h3>
+
+                <select id="teamFilter">
+                    <option value="all">All Teams</option>
+                    <option value="CSK">Chennai Super Kings</option>
+                    <option value="MI">Mumbai Indians</option>
+                    <option value="RCB">Royal Challengers Bengaluru</option>
+                    <option value="KKR">Kolkata Knight Riders</option>
+                    <option value="DC">Delhi Capitals</option>
+                    <option value="RR">Rajasthan Royals</option>
+                    <option value="SRH">Sunrisers Hyderabad</option>
+                    <option value="PBKS">Punjab Kings</option>
+                    <option value="GT">Gujarat Titans</option>
+                    <option value="LSG">Lucknow Super Giants</option>
+                </select>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Match No.</th>
+                            <th>Teams</th>
+                            <th>Date & Time</th>
+                            <th>Venue</th>
+                            <th>General</th>
+                            <th>Premium</th>
+                            <th>VIP</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="matchTable"></tbody>
+                </table>
+            </div>
+
+            <p class="notice">Sample fixtures and prices for academic demonstration only.</p>
+        </div>
+    </section>
+
+    <!-- BOOKING -->
+    <section id="booking" class="booking-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Book Your Tickets</h2>
+                <p>Your stadium experience starts here!</p>
+            </div>
+
+            <div class="booking-grid">
+
+                <form class="booking-form" id="bookingForm">
+                    <h3>Booking Details</h3>
+
+                    <div class="form-group">
+                        <label for="matchSelect">Select Match</label>
+                        <select id="matchSelect" required>
+                            <option value="">Choose a match</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="stand">Stand Category</label>
+                        <select id="stand" required>
+                            <option value="General">General</option>
+                            <option value="Premium">Premium</option>
+                            <option value="VIP">VIP</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="quantity">Number of Tickets</label>
+                        <input type="number" id="quantity" min="1" max="10" value="1" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" maxlength="80" placeholder="Enter your full name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" pattern="[6-9][0-9]{9}" maxlength="10" placeholder="10-digit mobile number" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-yellow submit-btn">
+                        Confirm Booking
+                    </button>
+                </form>
+
+                <!-- SUMMARY -->
+                <aside class="summary-card">
+                    <h3>Booking Summary</h3>
+
+                    <div class="summary-row">
+                        <span>Match</span>
+                        <strong id="summaryMatch">Not Selected</strong>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Stand</span>
+                        <strong id="summaryStand">General</strong>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Ticket Price</span>
+                        <strong id="summaryPrice">₹0</strong>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Quantity</span>
+                        <strong id="summaryQuantity">1</strong>
+                    </div>
+
+                    <div class="summary-total">
+                        <span>Total</span>
+                        <span id="summaryTotal">₹0</span>
+                    </div>
+
+                    <p class="notice">Demo pricing only. No actual payment is processed.</p>
+                </aside>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- DIGITAL TICKET -->
+    <section id="digital-ticket" class="ticket-section" hidden>
+        <div class="container">
+            <div class="section-heading">
+                <h2>Booking Confirmation</h2>
+                <p>Your digital ticket is ready!</p>
+            </div>
+
+            <article class="digital-ticket" id="ticketCard">
+
+                <div class="ticket-header">
+                    <div>
+                        <span class="ticket-label">OFFICIAL-STYLE DEMO PASS</span>
+                        <h2>IPL <span>2026</span></h2>
+                    </div>
+                    <div class="ticket-status">DEMO CONFIRMED</div>
+                </div>
+
+                <div class="ticket-banner">
+                    <h3 id="ticketTeams">RCB vs CSK</h3>
+                    <p id="ticketDate">Match Date</p>
+                </div>
+
+                <div class="ticket-body">
+                    <div class="ticket-details">
+
+                        <div class="ticket-detail">
+                            <small>BOOKING ID</small>
+                            <strong id="ticketBookingId">-</strong>
+                        </div>
+
+                        <div class="ticket-detail">
+                            <small>NAME</small>
+                            <strong id="ticketName">-</strong>
+                        </div>
+
+                        <div class="ticket-detail">
+                            <small>VENUE</small>
+                            <strong id="ticketVenue">-</strong>
+                        </div>
+
+                        <div class="ticket-detail">
+                            <small>STAND CATEGORY</small>
+                            <strong id="ticketStand">-</strong>
+                        </div>
+
+                        <div class="ticket-detail">
+                            <small>NUMBER OF TICKETS</small>
+                            <strong id="ticketQuantity">-</strong>
+                        </div>
+
+                        <div class="ticket-detail">
+                            <small>TOTAL AMOUNT</small>
+                            <strong id="ticketTotal">-</strong>
+                        </div>
+
+                    </div>
+
+                    <div class="ticket-qr">
+                        <div id="qrCode"></div>
+                        <small>DEMO QR CODE</small>
+                    </div>
+                </div>
+
+                <div class="ticket-footer">
+                    <p>Experience the stadium energy live!</p>
+                    <strong>KEEP YOUR TICKET READY</strong>
+                </div>
+
+            </article>
+
+            <div class="ticket-actions">
+                <button class="btn btn-yellow" id="printTicket">
+                    Print / Save Ticket
+                </button>
+
+                <button class="btn btn-blue" id="newBooking">
+                    Book Another Ticket
+                </button>
+            </div>
+
+            <p class="notice ticket-note">
+                This is a sample digital ticket for an academic project.
+                It is not valid for entry into an actual stadium.
+            </p>
+        </div>
+    </section>
+
+    <!-- MY BOOKINGS -->
+    <section id="my-bookings">
+        <div class="container">
+            <div class="section-heading">
+                <h2>My Ticket Bookings</h2>
+                <p>View your confirmed demo bookings below.</p>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Booking ID</th>
+                            <th>Name</th>
+                            <th>Match</th>
+                            <th>Stand</th>
+                            <th>Tickets</th>
+                            <th>Total Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bookingRecords"></tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- GUIDELINES -->
+    <section id="guidelines">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Stadium Guidelines</h2>
+                <p>Follow these guidelines for a safe and enjoyable experience.</p>
+            </div>
+
+            <div class="guidelines-grid">
+
+                <article class="guideline-card">
+                    <div class="emoji">🎟️</div>
+                    <h3>Ticket Verification</h3>
+                    <p>Keep your booking confirmation and valid ticket ready at the stadium entrance.</p>
+                </article>
+
+                <article class="guideline-card">
+                    <div class="emoji">🪪</div>
+                    <h3>ID Proof Requirement</h3>
+                    <p>Carry a valid government-issued photo ID for verification.</p>
+                </article>
+
+                <article class="guideline-card">
+                    <div class="emoji">🚫</div>
+                    <h3>Prohibited Items</h3>
+                    <p>Outside food, fireworks, sharp objects and restricted items are not permitted.</p>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="container">
+        <h3>IPL <span>2026</span> Ticket Booking</h3>
+        <p>© 2026 IPL Ticket Booking. All Rights Reserved.</p>
+        <p class="footer-note">Academic demonstration project. Not an official IPL booking platform.</p>
+    </div>
+</footer>
+
+<!-- QR CODE LIBRARY -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<!-- JAVASCRIPT -->
+<script src="script.js" defer></script>
+
+</body>
+</html>
