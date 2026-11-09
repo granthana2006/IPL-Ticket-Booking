@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPL Ticket Booking</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body class="booking-page">
+
+    <main class="booking-container">
+    <h1>IPL 2026 Ticket Booking</h1>
+    <p>Fill in the details below to book your tickets!</p>
+
+    <form>
+
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name"
+        minlength="3" maxlength="50" required>
+        <br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br><br>
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone"
+        pattern="[0-9]{10}" maxlength="10" required>
+        <br><br>
+
+        <label for="match">Select Match:</label>
+        <select id="match" name="match" required>
+            <option value="">Choose a match</option>
+            <option value="RCB vs CSK">RCB vs CSK</option>
+            <option value="MI vs KKR">MI vs KKR</option>
+            <option value="RCB vs MI">RCB vs MI</option>
+            <option value="CSK vs SRH">CSK vs SRH</option>
+        </select>
+        <br><br>
+
+        <label for="stand">Stand Category:</label>
+        <select id="stand" name="stand" required>
+            <option value="">Choose a stand</option>
+            <option value="General">General</option>
+            <option value="Premium">Premium</option>
+            <option value="VIP">VIP</option>
+            <option value="Corporate">Corporate</option>
+        </select>
+        <br><br>
+
+        <label for="tickets">Number of Tickets:</label>
+        <input type="number" id="tickets" name="tickets"
+        min="1" max="10" required>
+        <br><br>
+
+        <p>Payment Preference:</p>
+
+        <input type="radio" id="online" name="payment"
+        value="Online" required>
+        <label for="online">Online Payment</label>
+
+        <input type="radio" id="counter" name="payment"
+        value="Counter">
+        <label for="counter">Counter Payment</label>
+        <br><br>
+
+        <button type="submit">Book Tickets</button>
+        <button type="reset">Reset</button>
+
+    </form>
+    </main>
+
+</body>
+</html>
