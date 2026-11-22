@@ -60,3 +60,34 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
 });
+
+// ACTIVITY 7 - LIVE BOOKING SUMMARY
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    // Select booking form controls
+    const matchSelect = document.getElementById("matchSelect");
+    const standSelect = document.getElementById("stand");
+    const ticketQuantity = document.getElementById("quantity");
+
+    // Function to show notification
+    function notifySummaryUpdate() {
+        showToast("Booking Summary Updated!");
+    }
+
+    // Match selection event
+    matchSelect.addEventListener("change", function() {
+        notifySummaryUpdate();
+    });
+
+    // Stand selection event
+    standSelect.addEventListener("change", function() {
+        notifySummaryUpdate();
+    });
+
+    // Ticket quantity event
+    ticketQuantity.addEventListener("change", function() {
+        notifySummaryUpdate();
+    });
+
+});
