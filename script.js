@@ -72,7 +72,10 @@ const matches = [
 
 // 2. HTML ELEMENTS
 
-const matchTable = document.getElementById("matchTable");
+const matchGrid = document.getElementById("matchGrid");
+const gridViewBtn = document.getElementById("gridView");
+const listViewBtn = document.getElementById("listView");
+let currentView = "grid";
 const matchSelect = document.getElementById("matchSelect");
 const teamFilter = document.getElementById("teamFilter");
 const stand = document.getElementById("stand");
@@ -105,74 +108,56 @@ function formatCurrency(amount) {
 }
 
 
+
 // 5. DISPLAY MATCHES
 
 function displayMatches(filter = "all") {
 
-    matchTable.innerHTML = "";
+    matchGrid.innerHTML = "";
+
+    matchGrid.classList.toggle("list-view", currentView === "list");
 
     const filteredMatches = matches.filter(match => {
-
         return filter === "all" ||
             match.team1 === filter ||
             match.team2 === filter;
-
     });
 
     if (filteredMatches.length === 0) {
-
-        const row = document.createElement("tr");
-        const cell = document.createElement("td");
-
-        cell.colSpan = 8;
-        cell.textContent = "No matches found.";
-
-        row.appendChild(cell);
-        matchTable.appendChild(row);
-
+        matchGrid.textContent = "No matches found.";
         return;
     }
 
     filteredMatches.forEach(match => {
 
-        const row = document.createElement("tr");
+        const card = document.createElement("div");
+        card.className = "match-card";
 
-        const values = [
-            "#" + match.id,
-            match.team1 + " vs " + match.team2,
-            match.date,
-            match.venue,
-            formatCurrency(match.general),
-            formatCurrency(match.premium),
-            formatCurrency(match.vip)
-        ];
+        card.innerHTML = `
+            <h3>Match #${match.id}</h3>
+            <h2>${match.team1} vs ${match.team2}</h2>
+            <p><strong>Date:</strong> ${match.date}</p>
+            <p><strong>Venue:</strong> ${match.venue}</p>
 
-        values.forEach(value => {
+            <div class="match-prices">
+                <p>General: ${formatCurrency(match.general)}</p>
+                <p>Premium: ${formatCurrency(match.premium)}</p>
+                <p>VIP: ${formatCurrency(match.vip)}</p>
+            </div>
 
-            const cell = document.createElement("td");
-            cell.textContent = value;
-            row.appendChild(cell);
+            <button class="book-small">Book Ticket</button>
+        `;
 
-        });
-
-        const actionCell = document.createElement("td");
-        const button = document.createElement("button");
-
-        button.textContent = "Book";
-        button.className = "book-small";
-
-        button.addEventListener("click", () => {
+        card.querySelector(".book-small").addEventListener("click", function() {
             selectMatch(match.id);
         });
 
-        actionCell.appendChild(button);
-        row.appendChild(actionCell);
-
-        matchTable.appendChild(row);
+        matchGrid.appendChild(card);
 
     });
 
 }
+
 
 
 // 6. POPULATE MATCH DROPDOWN
@@ -193,6 +178,30 @@ function populateMatchDropdown() {
     });
 
 }
+
+// ACTIVITY 8 - GRID AND LIST VIEW
+
+gridViewBtn.addEventListener("click", function() {
+
+    currentView = "grid";
+
+    gridViewBtn.classList.add("active");
+    listViewBtn.classList.remove("active");
+
+    displayMatches(teamFilter.value);
+
+});
+
+listViewBtn.addEventListener("click", function() {
+
+    currentView = "list";
+
+    listViewBtn.classList.add("active");
+    gridViewBtn.classList.remove("active");
+
+    displayMatches(teamFilter.value);
+
+});
 
 
 // 7. FILTER MATCHES

@@ -91,3 +91,35 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
 });
+
+// ACTIVITY 8 - HAMBURGER MENU
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", function() {
+
+        navLinks.classList.toggle("active");
+
+        const isOpen = navLinks.classList.contains("active");
+
+        menuToggle.setAttribute("aria-expanded", isOpen);
+
+        menuToggle.innerHTML = isOpen ? "✕" : "☰";
+
+    });
+
+    // Close menu after clicking a navigation link
+    navLinks.querySelectorAll("a").forEach(function(link) {
+
+        link.addEventListener("click", function() {
+            navLinks.classList.remove("active");
+            menuToggle.innerHTML = "☰";
+            menuToggle.setAttribute("aria-expanded", "false");
+        });
+
+    });
+
+});
