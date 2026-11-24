@@ -10,7 +10,13 @@ function Hero() {
                     unforgettable moment.
                 </p>
 
-                <button>Explore Matches</button>
+                <button onClick={() => {
+    document.getElementById("matches")?.scrollIntoView({
+        behavior: "smooth"
+    });
+}}>
+    Explore Matches
+</button>
             </div>
         </section>
     );
