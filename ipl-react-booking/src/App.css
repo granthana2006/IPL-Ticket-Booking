@@ -1,0 +1,120 @@
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #092b70;
+    color: white;
+}
+
+.logo {
+    font-size: 25px;
+    margin: 0;
+}
+
+.logo span {
+    color: #ffda35;
+}
+
+.navbar ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li {
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.navbar li:hover {
+    color: #ffda35;
+}
+
+.hero {
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #092b70, #174ca5);
+    color: white;
+}
+
+.hero-content h1 {
+    font-size: 38px;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+.hero-content button {
+    background: #ffda35;
+    color: #092b70;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.matches-section {
+    padding: 50px;
+    text-align: center;
+    background: #eef3ff;
+    color: #092b70;
+}
+
+.matches-section h1 {
+    margin-bottom: 30px;
+    color: #092b70;
+}
+
+.matches-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.match-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.match-card h2 {
+    color: #092b70;
+    margin-bottom: 15px;
+}
+
+.match-card button {
+    background: #ffda35;
+    color: #092b70;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+@media (max-width: 800px) {
+    .matches-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 550px) {
+    .matches-grid {
+        grid-template-columns: 1fr;
+    }
+}
